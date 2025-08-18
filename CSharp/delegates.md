@@ -99,5 +99,38 @@ Predicate<T>
 ----------------
 ⦁	Return type boolean.
 Predicate<int> isEven = num => num % 2 == 0;
+
+Events
+------
+
+⦁	specal delegate mechanism used for publish and subscribe communication.
+⦁	allows one object to notify to another object when something happens.
+⦁	foundation of GUI frameworks (WinForms/WPF), .NET events, and many real-time apps.
+
+// Step 1: Define a delegate type
+public delegate void NotifyHandler(string message);
+
+// Step 2: Define an event in a class (Publisher)
+public class Process
+{
+    public event NotifyHandler ProcessCompleted;  // Event declaration
+
+    public void Start()
+    {
+        Console.WriteLine("Process Started...");
+        // Raise event
+        ProcessCompleted?.Invoke("Process finished successfully!");
+    }
+}
+
+// Step 3: Subscriber
+Process process = new Process();
+
+// Subscribe to event
+process.ProcessCompleted += (msg) => Console.WriteLine(msg);
+
+// Trigger
+process.Start();
+
 Console.WriteLine(isEven(10)); // true
 
