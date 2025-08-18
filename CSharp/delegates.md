@@ -125,12 +125,15 @@ public class Process
 }
 
 // Step 3: Subscriber
+
 Process process = new Process();
 
 // Subscribe to event
+
 process.ProcessCompleted += (msg) => Console.WriteLine(msg);
 
 // Trigger
+
 process.Start();
 
 
