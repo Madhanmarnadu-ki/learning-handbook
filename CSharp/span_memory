@@ -1,0 +1,42 @@
+Span<T> & Memory<T>
+--------------------
+⦁	Zero-copy slicing of data.
+⦁	safe, high-performance memory access.
+⦁	supports stack-allocated and heap-allocated.
+
+
+Span<T>
+-------
+
+⦁	stack-only ref struct that represents a contiguous block memory.
+⦁	can point to: array, string, unmanaged memory, stack-allocated memory.
+
+int[] numbers = { 1, 2, 3, 4, 5 };
+Span<int> span = numbers.AsSpan();   // wrap array as Span
+Span<int> slice = span.Slice(1, 3);  // slice without copy
+
+foreach (var n in slice)
+    Console.WriteLine(n); // 2, 3, 4
+
+
+-- No new array created -> just a view over existing memory.
+
+Memory<T>
+---------
+⦁	heap-friendly wrapper around memory (not stack-only)
+⦁	Unlike Span<T> it can be: stored in fields, used in async methods, process around and lived beyond the stack frame.
+
+public async Task ProcessDataAsync(Memory<byte> buffer)
+{
+    await Task.Delay(1000);
+    Span<byte> span = buffer.Span;  // convert to Span for processing
+    span[0] = 42;
+}
+
+Array vs Span<T> vs Memory<T>
+-------------------------------
+Array (T[]): Fixed-size, heap object storing contiguous T values.
+
+Span<T>: Stack-only view (slice) over contiguous memory (array, stack, native) — no allocation, super fast.
+
+Memory<T>: Heap-friendly wrapper over contiguous memory that you can store/field/await; convertible to Span<T> when you need to access the bytes.
