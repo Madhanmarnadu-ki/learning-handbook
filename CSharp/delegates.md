@@ -99,6 +99,7 @@ Predicate<T>
 ----------------
 ⦁	Return type boolean.
 Predicate<int> isEven = num => num % 2 == 0;
+Console.WriteLine(isEven(10)); // true
 
 Events
 ------
@@ -132,5 +133,5 @@ process.ProcessCompleted += (msg) => Console.WriteLine(msg);
 // Trigger
 process.Start();
 
-Console.WriteLine(isEven(10)); // true
+
 
