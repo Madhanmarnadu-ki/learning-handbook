@@ -1,0 +1,43 @@
+Interview Questions
+---------------------
+Question 1:
+-----------
+Input
+------
+Learning C# opens doors to powerful software development.
+String manipulation is a key skill in many applications.
+Clean code and logical thinking make programs efficient.
+Practice daily to sharpen your programming abilities.
+
+Output
+-------
+
+gninraeL #C snepo srood ot lufrewop erawtfos tnempoleved.
+gnirtS noitalupinam si a yek lliks ni ynam snoitacilppa.
+naelC edoc dna lacigol gnikniht ekam smargorp tneiciffe.
+ecitcarP yliad ot neprahs ruoy gnimmargorp seitiliba.
+
+**Each word should get reversed. 
+**But the sentence should not changed 
+**Result should shown as line by line.
+
+Question 2:
+------------
+Input
+------
+miscommunication
+
+Output
+------
+i=4
+m=3
+c=3
+o=3
+n=3
+s=2
+u=2
+a=2
+t=2
+
+** Number of Occurrence of each letter.
+** Letters should be order by the number of occurrence.
