@@ -4,10 +4,8 @@ Span<T> & Memory<T>
 ⦁	safe, high-performance memory access.
 ⦁	supports stack-allocated and heap-allocated.
 
-
 Span<T>
 -------
-
 ⦁	stack-only ref struct that represents a contiguous block memory.
 ⦁	can point to: array, string, unmanaged memory, stack-allocated memory.
 
@@ -17,7 +15,6 @@ Span<int> slice = span.Slice(1, 3);  // slice without copy
 
 foreach (var n in slice)
     Console.WriteLine(n); // 2, 3, 4
-
 
 -- No new array created -> just a view over existing memory.
 
