@@ -21,11 +21,9 @@ To build a centralized **handbook** for:
 
 ## 📝 Topics Covered
 
-- **C# / .NET**
-  - Async & Await
+- **C# / .NET**  
   - Delegates & Events
-  - Span\<T>, Memory\<T>, GC
-  - Exception Handling
+  - Span\<T>, Memory\<T>  
 - **ASP.NET Core**
   - Middleware, Filters
   - Identity & Authentication
