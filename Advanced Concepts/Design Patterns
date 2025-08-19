@@ -1,0 +1,19 @@
+Design Patterns
+---------------
+
+-- It is a template for guiding structure.
+-- Complement principles like SOLID, GRAPS and Clean Architecture 
+
+Types
+------
+
+⦁	Creational -- Singleton, Factory, Abstract Factory, Builder, Prototype.
+⦁	Structural -- Adapter, Facade, Composite, Decorator, Proxy, Bridge, Flyweight 
+⦁	Behavioral -- Strategy, Observer, Command, State, Template Method, Iterator, Mediator, Chain of responsibility, Memento, Visitor
+
+
+Most Used Patterns
+------------------
+⦁	Creational -- Singleton, Factory, Abstract Factory
+⦁	Structural -- Adapter, Facade, Decorator, Proxy
+⦁	Behavioral -- Strategy, Observer, Command, State
