@@ -1,0 +1,19 @@
+Redis Cache
+------------
+
+-- in-memory data store
+-- supports string, hashes, sorted sets, lists, and streams
+
+Uses
+-----
+
+-- caching, session, rate limiting, leaderboards, queues, and presence (who's online)
+
+Steps to Implement
+-------------------
+
+1.	Install NuGet package (Microsoft.Extensions.Caching.StackExchangeRedis
+2.	set the configuration values in appsettings.json file
+3.	Read the configuration values from appsettings.json and configure redis in program.cs
+4.	Create service file to implement redis cache.
+5.	define key for redis like "myapp:prod:user:{userId}"
