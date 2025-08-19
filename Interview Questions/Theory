@@ -1,0 +1,8 @@
+Theory
+-------
+1. Middleware Concepts
+2. Can we stop or terminate middleware if it possible how and if it not why?
+3. Data Annotations & Fluent APIs
+4. Static
+5. AddScoped & AddSinglton
+6. SOLID 
