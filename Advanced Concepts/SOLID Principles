@@ -1,0 +1,205 @@
+SOLID Principles
+----------------
+
+⦁	for clean, maintainable and extensible object-oriented systems.
+⦁	SRP, OCP, LSP, ISP, DIP
+
+1.	SRP - Single Responsibility Principle
+------------------------------------------
+
+⦁	Each class should do one thing and do it well
+⦁	Avoid handle multiple concerns
+
+Bad Example
+-----------
+
+public class UserService
+{
+    public void Register(User user) { /* DB Save */ }
+    public void SendEmail(User user) { /* SMTP */ }
+}
+
+
+Good Example
+-----------
+
+public class UserRepository
+{
+    public void Add(User user) { /* DB Save */ }
+}
+public class EmailService
+{
+    public void SendWelcome(User user) { /* SMTP */ }
+}
+
+2. OCP - Open/Closed Principle 
+-------------------------------
+
+⦁	Should open for extension and closed for modification.
+⦁	able to add new behaviour without changing existing behavior.
+⦁	achieved via polymorphism, abstraction and DI
+
+Bad Example
+-----------
+
+public class PaymentProcessor
+{
+    public void Pay(string method)
+    {
+        if (method == "CreditCard") { /* logic */ }
+        else if (method == "PayPal") { /* logic */ }
+    }
+}
+
+**** Every time a new payment type is added, the class must be modified.
+
+Good Example
+-----------
+
+public interface IPayment
+{
+    void Pay();
+}
+public class CreditCardPayment : IPayment { public void Pay() { } }
+public class PayPalPayment : IPayment { public void Pay() { } }
+
+public class PaymentProcessor
+{
+    private readonly IPayment _payment;
+    public PaymentProcessor(IPayment payment) => _payment = payment;
+    public void Process() => _payment.Pay();
+}
+
+**** Now you just add new classes without touching PaymentProcessor.
+
+3. LSP - Liskov Substitution Principle 
+---------------------------------------
+
+⦁	objects of superclass should be replaceable with objects of subclasses without breaking the program.
+⦁	subclass must behave consistently with base class's contract.
+⦁	if a derived classes changes expected behavior, it violates LSP.
+
+Bad Example
+-----------
+
+public class Bird
+{
+    public virtual void Fly()
+    {
+        Console.WriteLine("Bird is flying...");
+    }
+}
+
+public class Sparrow : Bird
+{
+    public override void Fly()
+    {
+        Console.WriteLine("Sparrow is flying...");
+    }
+}
+
+public class Ostrich : Bird
+{
+    public override void Fly()
+    {
+        throw new NotImplementedException("Ostrich cannot fly!");
+    }
+}
+
+
+Good Example
+-----------
+
+public abstract class Bird
+{
+    public abstract void Eat();
+}
+
+public interface IFlyable
+{
+    void Fly();
+}
+
+public class Sparrow : Bird, IFlyable
+{
+    public override void Eat() => Console.WriteLine("Sparrow is eating seeds...");
+    public void Fly() => Console.WriteLine("Sparrow is flying...");
+}
+
+public class Ostrich : Bird
+{
+    public override void Eat() => Console.WriteLine("Ostrich is eating plants...");
+}
+
+
+4. ISP - Interface Segregation Principle
+-----------------------------------------
+
+⦁	client should not be forced to depend on interfaces they do not use.
+⦁	prefer many small, specific interfaces
+
+Bad Example
+-----------
+
+public interface IPrinter
+{
+    void Print();
+    void Scan();
+    void Fax();
+}
+public class BasicPrinter : IPrinter
+{
+    public void Print() { }
+    public void Scan() { throw new NotImplementedException(); }
+    public void Fax() { throw new NotImplementedException(); }
+}
+
+
+Good Example
+-----------
+
+public interface IPrint { void Print(); }
+public interface IScan { void Scan(); }
+
+public class BasicPrinter : IPrint
+{
+    public void Print() { }
+}
+
+5. DIP - Dependency Injection Principle
+----------------------------------------
+
+⦁	Depend on abstraction not on concretions
+⦁	High level should not depend on low level modules
+⦁	both should depend on interfaces/abstraction
+
+Bad Example
+-----------
+
+public class FileLogger
+{
+    public void Log(string msg) { }
+}
+public class OrderService
+{
+    private FileLogger _logger = new FileLogger();
+    public void PlaceOrder() { _logger.Log("Order placed"); }
+}
+
+****** Tightly coupled—if logger changes, OrderService breaks.
+
+Good Example
+-----------
+
+public interface ILogger { void Log(string msg); }
+public class FileLogger : ILogger { public void Log(string msg) { } }
+public class DbLogger : ILogger { public void Log(string msg) { } }
+
+public class OrderService
+{
+    private readonly ILogger _logger;
+    public OrderService(ILogger logger) => _logger = logger;
+    public void PlaceOrder() => _logger.Log("Order placed");
+}
+
+***** Now you can inject any ILogger (via Dependency Injection).
