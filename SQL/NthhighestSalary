@@ -1,0 +1,50 @@
+
+OFFSET & LIMIT
+---------------
+
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 4;
+
+Window Function
+----------------
+SELECT salary
+FROM (
+  SELECT salary,
+         DENSE_RANK() OVER (ORDER BY salary DESC) AS rk
+  FROM Employee
+) AS ranked
+WHERE rk = 5;
+
+
+ROW_NUMBER()
+------------
+
+SELECT *
+FROM (
+  SELECT salary,
+         ROW_NUMBER() OVER (ORDER BY salary DESC) AS rn
+  FROM Employee
+) AS numbered
+WHERE rn = 5;
+
+TOP
+----
+
+SELECT MIN(salary) AS FifthHighest
+FROM (
+  SELECT TOP 5 salary
+  FROM Employee
+  ORDER BY salary DESC
+) AS top_salaries;
+
+
+OFFSET & FETCH
+--------------
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+OFFSET 4 ROWS
+FETCH NEXT 1 ROW ONLY;
+
