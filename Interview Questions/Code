@@ -41,3 +41,9 @@ t=2
 
 ** Number of Occurrence of each letter.
 ** Letters should be order by the number of occurrence.
+
+- Write how to do dependency injection
+- Get duplicate names from array of names.
+- 5th Highest Salary
+- Get the name start with 'm' using LINQ 
+- Single Query to select duplicate and delete it.
