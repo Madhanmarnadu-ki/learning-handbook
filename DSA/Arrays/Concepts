@@ -1,0 +1,38 @@
+Array
+------
+1.	Concept
+------------
+⦁	Linear Data Structure
+⦁	stores fixed-size sequence of elements of same data type.
+⦁	stored in contiguous memory location.
+⦁	index based access
+⦁	allow random access
+
+2. Time Complexity
+-------------------
+⦁	Access 		-> O(1)
+⦁	Update 		-> O(1)
+⦁	insert (end) 	-> O(1)
+⦁	insert (middle) 	-> O(n)
+⦁	delete (end) 	-> O(1)
+⦁	delete (middle) 	-> O(n)
+
+3. Types of Array
+------------------
+⦁	One-Dimensional Array
+⦁	Two-Dimensional Array
+⦁	Multi-Dimensional Array
+⦁	Jagged Array (Array of Arrays)
+
+4. Key Patterns
+----------------
+⦁	Sliding Window
+⦁	Two Pointers
+⦁	Prefix Sum / Cumulative Sum
+⦁	Hashing/Frequency Map
+⦁	Sorting + Binary Search
+⦁	Kadane's Algorithm
+⦁	Cyclic / Index Manipulation
+⦁	Greedy / Partitioning
+⦁	Matrix/2D Array Patterns
+⦁	Rearrangement & Partitioning
