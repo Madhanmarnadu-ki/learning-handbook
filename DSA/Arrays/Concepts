@@ -24,7 +24,55 @@ Array
 ⦁	Multi-Dimensional Array
 ⦁	Jagged Array (Array of Arrays)
 
-4. Key Patterns
+4. Must-Know Problems & Algorithms
+-----------------------------------
+Basics
+-------
+⦁	Traverse / Print / Reverse an array
+⦁	Find max / min / second largest
+⦁	Sum & avg of elements
+
+Searching
+----------
+⦁	Linear Search -> O(n)
+⦁	Binary Search (sorted arrays) -> O(log n)
+⦁	Variations: first/last occurance, count of occurances
+
+Rearrangement
+--------------
+⦁	Reverse array in-place (two pointers)
+⦁	Rotate array (left/right/k steps)
+⦁	Move zeros to end / segregate positivies & negativies
+
+Prefix/Sufix
+-------------
+⦁	Prefix sum array (range queries)
+⦁	Equilibrium index (sum left == sum right)
+⦁	Maximum subarray sum (Kadane's Algorithm)
+
+Two Pointers / Sliding Window
+------------------------------
+⦁	Pair with given sum (Two sum sorted)
+⦁	Container With Most Water (max area)
+⦁	Longest subarray with sum <= K
+⦁	Sliding window max/min
+
+Sorting based
+--------------
+⦁	Sort 0s, 1s, 2s (Dutch National Flag)
+⦁	Merge two sorted arrays
+⦁	Find k-th smallest/largest (QuickSelect, Heap)
+
+Advanced / Interview Favorites
+-------------------------------
+⦁	Subarray sum equal to k (hash map)
+⦁	Longest consective sequence(hash set)
+⦁	Majority element (Boyer-Moore Voting)
+⦁	Trapping Rain Water
+⦁	Product of array except self
+⦁	Maximum circular subarray sum 
+
+5. Key Patterns
 ----------------
 ⦁	Sliding Window
 ⦁	Two Pointers
@@ -36,3 +84,4 @@ Array
 ⦁	Greedy / Partitioning
 ⦁	Matrix/2D Array Patterns
 ⦁	Rearrangement & Partitioning
+
